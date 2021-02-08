@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom"; 
 import image1 from '../image1.jpg'
 
@@ -13,13 +13,6 @@ function ContactForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     let history = useHistory();
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        setErrors(validateInfo(values));
-        setIsSubmitting(true);
-        isSubmitting == true && history.push("/postsubmission");
-    };
-
     const handleChange = e => {
         const { name, value } = e.target;
         setValues({
@@ -28,8 +21,23 @@ function ContactForm() {
         });
     };
 
+    const handleSubmit = e => {
+        e.preventDefault();
+        setErrors(validateInfo(values));
+        setIsSubmitting(true);
+    };
+
+    useEffect(
+        () => {
+            if (Object.keys(errors).length === 0 && isSubmitting) {
+                history.push("/postsubmission");
+            }
+        },
+        [errors]
+    );
+
     const validateInfo = (values) => {
-        let errors = {};
+        const errors = {};
 
         if ((!values.mobile) || (!/[0-9]|\./.test(values.mobile)) || (values.mobile.length < 10)) {
             errors.mobile = 'Please enter a valid mobile number';
@@ -68,17 +76,17 @@ function ContactForm() {
                                     <legend class="w-auto mb-0">Mobile Number:</legend>
                                     <input id="mobile" type="text" name="mobile" class="form-control shadow-none px-0 border-0" onChange={handleChange} />
                                 </fieldset>
-                                {errors.mobile && <p class="text-red">{errors.mobile}</p>}
+                                {errors.mobile && <h6 class="text-red">{errors.mobile}</h6>}
                                 <fieldset class="form-group border px-4 pb-2 my-4">
                                     <legend class="w-auto mb-0">Full Name:</legend>
                                     <input id="name" type="text" name="name" class="form-control shadow-none px-0 border-0" onChange={handleChange} placeholder="Enter Full Name" />
                                 </fieldset>
-                                {errors.name && <p class="text-red">{errors.name}</p>}
+                                {errors.name && <h6 class="text-red">{errors.name}</h6>}
                                 <fieldset class="form-group border px-4 pb-2 my-4">
                                     <legend class="w-auto mb-0">E-mail ID:</legend>
                                     <input id="email" type="text" name="email" class="form-control shadow-none px-0 border-0" onChange={handleChange} placeholder="Enter E-mail ID" />
                                 </fieldset>
-                                {errors.email && <p class="text-red">{errors.email}</p>}
+                                {errors.email && <h6 class="text-red">{errors.email}</h6>}
                                 <div class="form-group my-4">
                                     <label for="select">What describes you best?</label>
                                     <select class="selectpicker form-control border shadow-none" title="Select options">
@@ -88,7 +96,7 @@ function ContactForm() {
                                         <option>Other</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-block btn-primary mt-4 mb-2">Submit</button>
+                                <button type="submit" class="btn btn-block btn-primary shadow-none mt-4 mb-2">Submit</button>
                                 <h6 class="text-center text-muted px-md-5">By clicking 'submit' button you explicitly solicit a call & email from uFaber</h6>
                             </form>
                         </div>				
