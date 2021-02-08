@@ -10,11 +10,9 @@ import PostSubmission from './Pages/PostSubmission'
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/postsubmission" component={PostSubmission} />
+    <Router basename={'/react-js-project/'}>
         <Route path="/" exact component={ContactForm} />
-      </Switch>
+        <Route path="/postsubmission" component={PostSubmission} />
     </Router>
   );
 }

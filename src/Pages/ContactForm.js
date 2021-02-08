@@ -47,15 +47,15 @@ function ContactForm() {
     };
 
     return (
-        <div class="container-fluid">
+        <div class="container">
             <div class="row vh-100 justify-content-center align-items-center">
-                <div class="col-md-4 px-4">
+                <div class="col-md-6 px-4">
                     <h3 class="text-center text-md-left"><strong>UPSC</strong> PATHSHALA</h3>
                     <h2 class="mb-4 text-center text-md-left d-none d-md-block">Best Online Coaching<br />for UPSC Preparation</h2>
                     <h2 class="mb-4 text-center d-md-none d-block">Best Online Coaching for UPSC</h2>
                     <img src={image1} class="w-100 d-none d-md-block" />
                 </div>
-                <div class="col-md-4 px-4">
+                <div class="col-md-6 px-4">
                     <div class="card">
                         <div class="card-body">
                             <h3 class="text-center my-0"><strong>Book a Free Demo Class</strong></h3>
