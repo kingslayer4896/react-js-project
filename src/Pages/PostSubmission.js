@@ -105,9 +105,9 @@ function PostSubmission() {
                         <div class="div-outline div-outline-lower text-right">1000+ hours of Video content</div>
                         <div class="div-outline div-outline-lower text-left">Help in filling DAF</div>
                     </div>
-                    <div class="d-flex justify-content-center my-4">
-                        <button class="btn btn-orange" style={{ width:150 }}><i class="fa fa-globe fa-lg mr-2" aria-hidden="true"></i> Website</button>
-                        <button class="btn btn-red" style={{ width:150 }}><i class="fa fa-youtube-play fa-lg mr-2" aria-hidden="true"></i> Youtube</button>
+                    <div class="d-md-flex justify-content-center my-4">
+                        <button class="btn btn-block btn-orange mx-auto my-3 mx-md-2 my-md-0" style={{ width:150 }}><i class="fa fa-globe fa-lg mr-2" aria-hidden="true"></i> Website</button>
+                        <button class="btn btn-block btn-red mx-auto my-3 mx-md-2 my-md-0" style={{ width:150 }}><i class="fa fa-youtube-play fa-lg mr-2" aria-hidden="true"></i> Youtube</button>
                     </div>
                 </div>
             </div>
